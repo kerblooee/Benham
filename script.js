@@ -16,7 +16,8 @@ const config = {
       update: update,
     }
 };
-  
+// Global variables    
+
 // Create game scene
 const game = new Phaser.Game(config);
 
@@ -27,11 +28,43 @@ function preload() {
 function create() {
   this.graphics = this.add.graphics({ lineStyle: {color: 0xFFFFFF, width: 5}, fillStyle: {color: 0xFFFFFF, alpha: 1} });
   this.arcs = this.add.graphics({ lineStyle: {color: 0x000000, width: 3}, fillStyle: {color: 0x000000, alpha: 1} });  
+  // create control bar
+  this.controller = new Phaser.Geom.Line(40,100,80,100);
+  this.input.on('pointerup', onPointerUp, this); 
+  this.input.on('pointerdown', onPointerDown, this);
+  
 };
+
+//commented out until I want to work more on inputs
+
+function onPointerMove(pointer) {
+  //this.line.setTo(this.x, this.y, pointer.x, pointer.y);
+  
+  this.controller.setTo(40,pointer.y,80,pointer.y);
+  console.log('moving', pointer.x, ' ', pointer.y);
+  this.y = pointer.y;
+  this.graphics.strokeLineShape
+  // Write portion that will limit where it can be dragged.
+  // Numbers that represent the speed would be helpful.
+}
+
+function onPointerDown(pointer)  {
+  // this.x = pointer.x;
+  // this.y = pointer.y;
+  // Check to make sure clicked on bar. 
+  this.input.on('pointermove', onPointerMove, this);
+
+  console.log('down', pointer.x, ", ", pointer.y);
+}
+
+function onPointerUp(pointer) {
+  this.input.off('pointermove', onPointerMove, this); 
+  console.log('up ', pointer.x, ", ", pointer.y);
+}
 
 function spin() {  
   // Create time, spin opposite direction by changing +/- sign and speed by changing divisor
-  const time = +((new Date)/1)%360;
+  const time = +((new Date))%360;
   this.graphics.clear();
   
   // Draw arcs  
@@ -137,9 +170,7 @@ function spin() {
 };
 
 function spin2 () {
-  
-  // Create time, spin opposite direction by changing +/- sign and speed by changing divisor
-  const time = +((new Date)/1)%360;
+const time = +((new Date)*(this.y/200))%360;
   // Clears the graphics
   this.graphics.clear();
   // Clears the arcs
@@ -162,7 +193,7 @@ function spin2 () {
     false
   );
   this.arcs.strokePath();
-  console.log("I made ", i, " black arcs");
+  //console.log("I made ", i, " black arcs");
     };
     for(var i=0;i<4;i++) {
   this.arcs.beginPath();
@@ -175,7 +206,7 @@ function spin2 () {
     false
   );
   this.arcs.strokePath();
-  console.log("I made ", i, " black arcs on the other side");
+  //console.log("I made ", i, " black arcs on the other side");
     };
   
   //Drawing large white arc fills
@@ -198,7 +229,7 @@ function spin2 () {
     false
   );
   this.graphics.fillPath();
-  console.log("I ran ", i, " : I made a large white arc");  
+  //console.log("I ran ", i, " : I made a large white arc");  
   };
   };
 
@@ -207,8 +238,13 @@ function art() {
   
 };
 
+function controller() {
+  this.graphics.strokeLineShape(this.controller);
+};
+
 function update() {
   //spin.call(this);
   spin2.call(this);
   //art.call(this);
+  controller.call(this);
 };
