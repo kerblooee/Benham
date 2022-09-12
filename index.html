@@ -2,38 +2,50 @@
 <html lang="en">
   <head>
     <title>Benhams Disk</title>
+    <link rel="icon" href="https://cdn.glitch.com/e42fe98f-5518-4c7d-9a5b-4ad8a89a187d%2Fblackwhite_icon.jpg?v=1586384371591" samesite="none" secure>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
     <!-- import the webpage's stylesheet -->
     <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
     <!-- import phaser 3.17 --> 
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.17.0/dist/phaser.min.js" defer></script>
-    <!-- import JS game -->
-    <script src="/script.js" defer></script>
+    <script src="//cdn.jsdelivr.net/npm/phaser@3.17.0/dist/phaser.min.js"></script>
   </head>  
   <body>
-    <h1>Welcome!</h1>
-    
-    <p>
-      This is my attempt at making a computer version of Benham's disk!
+
+<div id="contentBox" style="margin:0px auto; width:100%">
+    <div id="column1">
+     <h1>Benham's Disk</h1>
+      <p>
+        Adjust the rotation speed and direction, as well as the amount of arcs!<br><br>
+        All colors are inside your mind. The disk is only black and white.<br><br>
+        Learn more about Benham's disk from the <a id="explo" href="https://www.exploratorium.edu/exhibits/benhams-disk">Exploratorium</a>
+      </p>
+  <div>     
+    <p class="controls">
+      Rotation Speed
+      <div class="slidecontainer" id="rotatespeed">
+        <input type="range" min="0" max="45" value="1" class="slider" id="rspdrng"> <spac id="rspd"></spac> 
+      </div>
     </p>
-    
-    <p>
-      Everything below is only black and white. Do you see any colors?
-    </p><p>
-      It is now possible to adjust the speed of the spinning disk! Just click and drag the white lever on the left.
-    </p><p>
-      There is also a second white lever that controls how many black lines you see in the white spaecs. 
-      Different speeds and divisions will give you a lot of different results!
+    <p class="controls">
+      Arc Amount
+      <div class="slidecontainer" id="arcamount">
+        <input type="range" min="2" max="20" value="7" class="slider" id="arca"> <span id="arca"></span>
+      </div>
     </p>
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-  </body>
-</html>
+    </div>
+
+    <div id="column2">
+      <script src="/script.js" defer></script>
+    </div>
+      <div id="revspdcol">
+        <button id="revspd"> Reverse Direction </button>
+  </div>
+  </div>
+
+<!--     <div id="column3">
+     CONTENT
+    </div> -->
+</div>
