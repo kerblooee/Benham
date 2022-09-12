@@ -1,16 +1,159 @@
 /* CSS files add styling rules to your content */
 
-body {
-  font-family: helvetica, arial, sans-serif;
-  margin: 2em;
-  background-color: #000000;
-}
-
-h1 {
-  font-style: italic;
-  color: #aa00af;
-}
-
-p {
-  color: #ffffff;
-}
+*{
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: helvetica, arial, sans-serif;
+    background-color: #000000;
+    max-height: 90%;
+    background-image: 
+      linear-gradient(135deg, rgba(255,255,255,0.25), rgba(0,0,0,1), rgba(5,5,5,1) 85%, rgba(200,200,200,0.15) ),
+      url('https://cdn.glitch.com/e42fe98f-5518-4c7d-9a5b-4ad8a89a187d%2Fblackwhite_icon.jpg?v=1586384371591')
+      ;
+  }
+  
+  h1 {
+    font-style: italic;
+    color: rgba(255,255,255,0.75);
+  }
+  
+  p {
+    color: #ffffff;
+  /*   width: 20%; */
+    font-family: monospace;
+    font-size: 20px;
+    
+    font-weight: 400;
+  }
+  #explo{
+  text-shadow: 0px 0px 0;
+  }
+  
+  #column1{
+    border-radius: 35px;
+    float:left; 
+    margin-right:50px;
+    width:400px;
+    mid-width: 30%;
+  /*   min-height:100%; */
+    color: white;
+    padding: 40px 20px 40px;
+    background-color: rgba(0,0,0,0.85);
+    text-shadow: 2px 2px rgba(255,255,255,0.35);
+  }
+  
+  #column2{
+    float:right; 
+    width: 720px;
+    min-width:60%;
+    
+  }
+  
+  /* #column3{
+    float:left; 
+    margin:0;
+    width:33%;
+    color:red;
+  } */
+  
+  /* The purpose of these lines below are to handle the sliders for the different controllers */
+  
+  .controls {  
+    color: rgba(255,255,255,0.75);
+  /*   color: rgba(200,0,140, 0.8);    Text for controllers */
+    font-size: 30px;
+    text-shadow: none;
+    padding: 10px;  
+  }
+  
+  .slidecontainer {
+    min-width: 100px;
+    max-width: 300px;
+    width: 100%;
+  }
+  
+  /* The slider itself */
+  .slider {
+    -webkit-appearance: none;  /* Override default CSS styles */
+    appearance: none;
+    width: 100%; /* Full-width */
+    height: 25px; /* Specified height */
+    background: #d3d3d3; /* Grey background */
+    outline: none; /* Remove outline */
+    opacity: 0.7; /* Set transparency (for mouse-over effects on hover) */
+    -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+    transition: opacity .2s;
+  }
+  
+  /* Mouse-over effects */
+  .slider:hover {
+    opacity: 0.5; /* Fully shown on mouse-over */
+  }
+  
+  /*  The slider handle (use -webkit- (Chrome, Opera, Safari, Edge) and -moz- (Firefox) to override default look) */
+  .slider::-webkit-slider-thumb {
+    -webkit-appearance: none; 
+    appearance: none;
+    width: 5px; 
+    height: 50px; 
+    background: #00ff00; 
+    cursor: pointer; 
+  }
+  
+  .slider::-moz-range-thumb {
+  /*   width: 25px; 
+    height: 25px;
+    background: #4CAF50; 
+    cursor: pointer;  */
+    appearance: none;
+    width: 5px; 
+    height: 50px; 
+    background: #00ff00; 
+    cursor: pointer; 
+    
+  }  
+  
+  #rotatespeed{
+    
+  }
+  
+  #arclength{
+    
+  }
+  
+  #arcamount{
+    
+  }
+  
+  #revspd {
+    background-color: rgba(0,0,0,0.5);
+    border-radius: 20px;
+    border: 2px solid rgba(200,200,200,0.5);
+    padding: 7px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    color: rgba(255,255,255, 0.8);
+    font-size: 30px;
+    font-weight:400;
+    font-family: helvetica, arial, sans-serif;
+    text-shadow: none;
+    cursor: pointer;
+  }
+  
+  #revspd:hover{
+    background-color:rgba(255,255,255,0.5);
+  }
+  
+  #revspd:active{
+    background-color:rgba(255,255,255,0.25);
+  }
+  
+  #revspdcol {
+    
+    min-height: 60px;
+  }
+  
+  /* End of slider controls */
